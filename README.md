@@ -1,6 +1,6 @@
-# BBDN-LearnObjectGenerator-Python
-This project is a Python app for creating test User, Course, and Membership objects in Blackboard Learn.
-It writes Snapshot Flat Files and optionally uses the Blackboard Learn REST APIs to update your test instance.
+# BBDN-LearnObjectGen-Python
+This project is a Python app for generating test User, Course, and Membership objects in Blackboard Learn.
+It writes Snapshot Flat Files and optionally uses the Blackboard Learn REST APIs to update your developer/test instance.
 
 This sample code was built with Python 3.5.1 and the Q2 2016 Developer Virtual Machine.
 
