@@ -53,25 +53,28 @@ creating supported Learn objects, and writing files
 
 <i><b>NOTE:</b> Before running the example code you must register a developer account and application as described on the Developer Community <a href="https://community.blackboard.com/docs/DOC-1579">What is the Developer Portal: Developer Registration and Application Management</a> and <a href="https://community.blackboard.com/docs/DOC-1580">Managing REST Integrations in Learn: The REST Integrations Tool for System Administrators</a> pages. You must also configure the script as outlined in the below Configure the Script section.</i>
 
-When run with only a target URL the script will in the following order
+When run the script will in the following order:<br/>
 Authenticate<br/>
-Create the maximum allowed Courses for the Developer VM<br/>
+Create the specified or maximum allowed Courses for the Developer VM using the specified or default starting index.<br/>
 
-When run with a specific command on an object only that operation will be run - you are responsible for system cleanup.
+The application does not support deleting created objects - you are responsible for system cleanup using the generated snapshot files.
 
 e.g.:
 ```
-$ python learnObjectGen.py -i|--index <start index> [-t|--target_url] [-f|--output_file]  [-o|--object <Courses|Users|Memberships>] [-n|--number]"
-            -t|--target_url : (Optional) Target URL - required to update with REST. If left blank output will be written to a the file specified by -f"
-            -i|--index : (Optional) Starting index for object ids. e.g.: 1000"
-            -n|--number : (Optional) Number of objects to create. e.g.: 10"
-            -f|--output_file : (Optional) Snapshot Flat File prefix. Default: learnObjectGen"
-         You have to minimally provide either the target (-t) or index (-i)"
-         Providing only the index arg writes Snapshot Flat Files for all objects (max count)."
-         Providing only the target arg writes Snapshot Flat Files for all objects (max count) AND uses REST to create the objects on the target system."
-         Max Counts: 100 Courses, 150 Users, 1000 Memberships"
-         NOTE: Snapshot flat files are created to assist in managing created objects. These may be regenerated using the same index "
-         and count arguments as when you created the objects and running without the -t argument.\n\n"
+$ python learnObjectGen.py -i|--index <start index> [-t|--target_url] [-f|--output_file]  [-o|--object <Courses|Users|Memberships>] [-n|--number]
+            -t|--target_url : (Optional) Target URL - required to update with REST. If left blank output will be written to a the file specified by -f
+            -i|--index : (Optional) Starting index for object ids. e.g.: 1000
+            -n|--number : (Optional) Number of objects to create. e.g.: 10
+            -f|--output_file : (Optional) Snapshot Flat File prefix. Default: learnObjectGen
+         You have to minimally provide either the target (-t) or index (-i)
+         Providing only the index arg writes Snapshot Flat Files for all objects (max count).
+         Providing only the target arg writes Snapshot Flat Files for all objects (max count) AND uses REST to create the objects on the target system.
+         Max Counts: 100 Courses, 150 Users, 1000 Memberships
+         NOTE: Snapshot flat files are created to assist in managing created objects. These may be regenerated using the same index
+         and count arguments as when you created the objects and running without the -t argument.
+         Note: When creating memberships this tool will randomly distribute memberships, emulating a real world environment.
+         Not all courses will have enrollments, not all Users will have enrollments.
+
 ```
 
 For example:
