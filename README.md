@@ -56,15 +56,8 @@ creating supported Learn objects, and writing files
 When run with only a target URL the script will in the following order
 Authenticate<br/>
 Create the maximum allowed Courses for the Developer VM<br/>
-Create, Read, and Update a Term<br/>
-Create, Read, and Update a Course<br/>
-Create, Read, and Update a User<br/>
-Create, Read, and Update a Membership<br/>
-Delete created objects in reverse order of create - membership, user, course, term, datasource.
 
 When run with a specific command on an object only that operation will be run - you are responsible for system cleanup.
-
-All generated output is sent to the terminal (or IDE output window).
 
 e.g.:
 ```
@@ -92,7 +85,7 @@ $ python learnObjectGen.py -i 1000
 ```
 $ python learnObjectGen.py -t localhost:9877
 ```
-<i>Uses REST to Create the maximum developer license supported number of all objects starting with the default index of 5000.<br/>
+<i>Uses REST to create the maximum developer license supported number of all objects starting with the default index of 5000.<br/>
 Writes Snapshot files to learnObjectGen
 </i>
 <br/><br/>
@@ -100,19 +93,19 @@ Writes Snapshot files to learnObjectGen
 ```
 $ python learnObjectGen.py -t localhost:9877 -i 2000
 ```
-<i>Uses REST to Create the maximum developer license supported number of all objects starting with the index of 2000. </i>
+<i>Uses REST to create the maximum developer license supported number of all objects starting with the index of 2000. </i>
 <br/><br/>
 
 ```
 $ python learnObjectGen.py -t localhost:9877 -i 2000 -n 10
 ```
-<i>Uses REST to Create the 10 of all objects starting with the index of 2000. </i>
+<i>Uses REST to create 10 of all objects starting with the index of 2000. </i>
 <br/><br/>
 
 ```
 $ python learnObjectGen.py -t localhost:9877 -i 2000 -n 10 -f myoutput
 ```
-<i>Uses REST to Create the 10 of all objects starting with the index of 2000 and creates snapshot files with the prefix "myoutput".<br/>
+<i>Uses REST to create 10 of all objects starting with the index of 2000 and creates snapshot files with the prefix "myoutput".<br/>
 E.g.: myoutput_COURSES-20160427-171504.txt</i>
 <br/><br/>
 
@@ -125,7 +118,7 @@ To run the demo if you have not already done so you must as outlined above regis
 ### Configuring the Script
 Before executing the script to run against your test server you must configure it with your registered application's Key and Secret.
 
-Open auth.py and edit lines 33 and 34.
+Open auth.py and edit lines 33 and 34.<br/>
 On line 33 replace "insert_your_application_key_here" with the key issued when you registered your application.<br/>
 On line 34 replace "insert_your_application_secret_here" with the secret issued when you registered your application.
 
