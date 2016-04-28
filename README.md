@@ -25,9 +25,9 @@ You may also install Python tools for your IDE or use a text editor and terminal
 
 ### Included Files
 learnObjectGen.py - this is the main script.<br/>
-constants.py - this file contains constants used by the application.
+constants.py - this file contains constants used by the application.<br/>
 auth.py - this script contains the code for authenticating the application and managing tokens<br/>
-datasource.py - this script creates or gets the datasource for the generated data.
+datasource.py - this script creates or gets the datasource for the generated data.<br/>
 course.py - this script contains REST source for creating Courses in Learn<br/>
 user.py - this script contains REST source for creating Users in Learn<br/>
 membership.py - this script contains REST source for creating User's course memberships (enrollments)
