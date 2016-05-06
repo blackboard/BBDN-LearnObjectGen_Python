@@ -30,7 +30,7 @@ class Tls1Adapter(HTTPAdapter):
 class AuthToken():
     target_url = ''
     def __init__(self, URL):
-        
+
         self.SECRET = "biExBJNI1IXiBBXpV8g01JJJjmXKHSg7" #Example Only. Change to your secret
         self.KEY = "9cb9384a-3662-410d-9953-fe73cc374b81"#Example Only. Change to your key
 
@@ -59,7 +59,7 @@ class AuthToken():
         # Authenticate
             #print("[auth:setToken] POST Request URL: " + OAUTH_URL)
             #print("[auth:setToken] JSON Payload: \n" + json.dumps(self.PAYLOAD, indent=4, separators=(',', ': ')))
-            
+
             try:
                 r = session.post(OAUTH_URL, data=self.PAYLOAD, auth=(self.KEY, self.SECRET), verify=False)
             except requests.HTTPError as err:
@@ -75,9 +75,9 @@ class AuthToken():
                     sys.exit(2)
             except requests.RequestException:
                 print("[auth:setToken] Error cannot connect to requested server. Exiting.\n")
-                sys.exit(2) 
-           
-                
+                sys.exit(2)
+
+
             #print("[auth:setToken()] STATUS CODE: " + str(r.status_code) )
             #strip quotes from result for better dumps
             res = json.loads(r.text)

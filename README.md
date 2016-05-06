@@ -73,7 +73,8 @@ $ python learnObjectGen.py -i|--index <start index> [-t|--target_url] [-f|--outp
          NOTE: Snapshot flat files are created to assist in managing created objects. These may be regenerated using the same index
          and count arguments as when you created the objects and running without the -t argument.
          Note: When creating memberships this tool will randomly distribute memberships, emulating a real world environment.
-         Not all courses will have enrollments, not all Users will have enrollments.
+         Not all courses will have enrollments, not all Users will have enrollments. Regenerated membership files will not align with previously generated 
+         membership snapshot files.
 
 ```
 
