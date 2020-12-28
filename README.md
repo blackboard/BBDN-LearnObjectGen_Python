@@ -2,35 +2,42 @@
 This project is a Python app for generating test User, Course, and Membership objects in Blackboard Learn.
 It writes Snapshot Flat Files and optionally uses the Blackboard Learn REST APIs to update your developer/test instance.
 
-This sample code was built with Python 3.5.1 and the Q2 2016 Developer Virtual Machine.
+This sample code was built with Python 3.7.0 and the latest Developer AMI.
 
-###Project at a glance:
+### Project at a glance:
+- Target: Blackboard Learn SaaS and Q2 2016 Release 3000.1.0 minimum
+- Source Release: v1.1
+- Release Date  2020-12-28
+- Author: shurrey
+
 - Target: Blackboard Learn SaaS and Q2 2016 Release 3000.1.0 minimum
 - Source Release: v1.0
 - Release Date  2016-04-29
 - Author: moneil
 
-###Requirements:
-- Python  3.5.1
+### Requirements:
+- Python  3.7.0
 - Developer account - register at https://developer.blackboard.com
 - Test instance
 
 
 ### Setting Up Your Development Environment
 #### Python development tools
-You will first need to install Python 3.5.1. You can use tools like brew or ports to install, or run the installation manually.
+You will first need to install Python 3.7.0. You can use tools like brew or ports to install, or run the installation manually.
 
 You may also install Python tools for your IDE or use a text editor and terminal to run the python code.
 
 
 ### Included Files
-learnObjectGen.py - this is the main script.<br/>
-constants.py - this file contains constants used by the application.<br/>
-auth.py - this script contains the code for authenticating the application and managing tokens<br/>
-datasource.py - this script creates or gets the datasource for the generated data.<br/>
-course.py - this script contains REST source for creating Courses in Learn<br/>
-user.py - this script contains REST source for creating Users in Learn<br/>
-membership.py - this script contains REST source for creating User's course memberships (enrollments)
+file | description
+--- | ---
+learnObjectGen.py | this is the main script.<br/>
+constants.py | this file contains constants used by the application.<br/>
+auth.py | this script contains the code for authenticating the application and managing tokens<br/>
+datasource.py | this script creates or gets the datasource for the generated data.<br/>
+course.py | this script contains REST source for creating Courses in Learn<br/>
+user.py | this script contains REST source for creating Users in Learn<br/>
+membership.py | this script contains REST source for creating User's course memberships (enrollments)
 
 
 ### What it does
@@ -51,11 +58,11 @@ and one which presents users which were created but were not placed in courses.
 This script demonstrates authenticating a REST application, use of the authorization token, 
 creating supported Learn objects, and writing files
 
-<i><b>NOTE:</b> Before running the example code you must register a developer account and application as described on the Developer Community <a href="https://community.blackboard.com/docs/DOC-1579">What is the Developer Portal: Developer Registration and Application Management</a> and <a href="https://community.blackboard.com/docs/DOC-1580">Managing REST Integrations in Learn: The REST Integrations Tool for System Administrators</a> pages. You must also configure the script as outlined in the below Configure the Script section.</i>
+<i><b>NOTE:</b> Before running the example code you must register a developer account and application as described on the Developer Docs <a href="https://docs.blackboard.com/learn/rest/getting-started/registry">REST Registration</a> and <a href="https://docs.blackboard.com/learn/rest/getting-started/rest-and-learn">Managing REST Integrations in Learn: The REST Integrations Tool for System Administrators</a> pages. You must also configure the script as outlined in the below Configure the Script section.</i>
 
 When run the script will in the following order:<br/>
-Authenticate<br/>
-Create the specified or maximum allowed Courses for the Developer VM using the specified or default starting index.<br/>
+1. Authenticate<br/>
+2. Create the specified or maximum allowed Courses for the Developer AMI using the specified or default starting index.<br/>
 
 The application does not support deleting created objects - you are responsible for system cleanup using the generated snapshot files.
 
@@ -122,8 +129,8 @@ To run the demo if you have not already done so you must as outlined above regis
 ### Configuring the Script
 Before executing the script to run against your test server you must configure it with your registered application's Key and Secret.
 
-Open auth.py and edit lines 33 and 34.<br/>
-On line 33 replace "insert_your_application_key_here" with the key issued when you registered your application.<br/>
-On line 34 replace "insert_your_application_secret_here" with the secret issued when you registered your application.
+1. Open auth.py and edit lines 33 and 34.<br/>
+2. On line 33 replace "insert_your_application_key_here" with the key issued when you registered your application.<br/>
+3. On line 34 replace "insert_your_application_secret_here" with the secret issued when you registered your application.
 
 Once you have setup your test server and changed auth.py to reflect your application's key and secret you may run the command line tools as outlined above or via your IDE.
