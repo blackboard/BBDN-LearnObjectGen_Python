@@ -53,15 +53,15 @@ class AuthToken():
         OAUTH_URL = 'https://' + self.target_url + oauth_path
 
         if self.TOKEN is None:
-            session = requests.session()
-            session.mount('https://', Tls1Adapter()) # remove for production
+            #session = requests.session()
+            #session.mount('https://', Tls1Adapter()) # remove for production
 
         # Authenticate
             #print("[auth:setToken] POST Request URL: " + OAUTH_URL)
             #print("[auth:setToken] JSON Payload: \n" + json.dumps(self.PAYLOAD, indent=4, separators=(',', ': ')))
 
             try:
-                r = session.post(OAUTH_URL, data=self.PAYLOAD, auth=(self.KEY, self.SECRET), verify=False)
+                r = requests.post(OAUTH_URL, data=self.PAYLOAD, auth=(self.KEY, self.SECRET), verify=False)
             except requests.HTTPError as err:
                 if err.code == 400: # 400 Invalid access token request.
                     print("[auth:setToken] Error 400 Invalid access token request.\n")
@@ -132,13 +132,13 @@ class AuthToken():
             print("[auth:revokeToken()] POST PAYLOAD: ")
             for keys,values in self.PAYLOAD.items():
                 print("\t\t\t" + keys + ":" + values)
-            session = requests.session()
-            session.mount('https://', Tls1Adapter()) # remove for production
+            #session = requests.session()
+            #session.mount('https://', Tls1Adapter()) # remove for production
 
         # revoke token
             print("[auth:revokeToken] Request URL: " + revoke_URL)
             print("[auth:revokeToken] JSON Payload: \n " + json.dumps(self.PAYLOAD, indent=4, separators=(',', ': ')))
-            r = session.post(revoke_URL, data=self.PAYLOAD, auth=(self.KEY, self.SECRET), verify=False)
+            r = requests.post(revoke_URL, data=self.PAYLOAD, auth=(self.KEY, self.SECRET), verify=False)
 
             print("[auth:revokeToken()] STATUS CODE: " + str(r.status_code) )
             print("[auth:revokeToken()] RESPONSE: " + r.text)

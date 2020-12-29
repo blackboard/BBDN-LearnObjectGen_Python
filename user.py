@@ -44,12 +44,12 @@ class User():
 
         self.PAYLOAD = payload
 
-        session = requests.session()
-        session.mount('https://', Tls1Adapter()) # remove for production with commercial cert
+        #session = requests.session()
+        #session.mount('https://', Tls1Adapter()) # remove for production with commercial cert
         try:
             #print("[User:createUser()] POST Request URL: https://" + self.target_url + self.users_Path)
             #print("[User:createUser()] JSON Payload: " + self.PAYLOAD)
-            r = session.post("https://" + self.target_url + self.users_Path, data=self.PAYLOAD, headers={'Authorization':authStr, 'Content-Type':'application/json'}, verify=False)
+            r = requests.post("https://" + self.target_url + self.users_Path, data=self.PAYLOAD, headers={'Authorization':authStr, 'Content-Type':'application/json'}, verify=False)
             #print("[User:createUser()] STATUS CODE: " + str(r.status_code) )
             res = json.loads(r.text)
             #print("[User:createUser()] RESPONSE: \n" + json.dumps(res, indent=4, separators=(',', ': ')))

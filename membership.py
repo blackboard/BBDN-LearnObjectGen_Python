@@ -46,8 +46,8 @@ class Membership():
 
         self.PAYLOAD = payload
 
-        session = requests.session()
-        session.mount('https://', Tls1Adapter()) # remove for production with commercial cert
+        #session = requests.session()
+        #session.mount('https://', Tls1Adapter()) # remove for production with commercial cert
 
         #self.membership_Path = '/learn/api/public/v1/courses/courseId/users/userId'
         replacement = "externalId:"+course
@@ -59,7 +59,7 @@ class Membership():
         try:
             #print("[Membership:getMemberships()] PUT Request URL: https://" + self.target_url + membership_Path)
             #print("[Membership:getMemberships()] JSON Payload: " + self.PAYLOAD)
-            r = session.put("https://" + self.target_url + membership_Path, data=self.PAYLOAD, headers={'Authorization':authStr, 'Content-Type':'application/json'}, verify=False)
+            r = requests.put("https://" + self.target_url + membership_Path, data=self.PAYLOAD, headers={'Authorization':authStr, 'Content-Type':'application/json'}, verify=False)
             #print("[Membership:createMembership()] STATUS CODE: " + str(r.status_code) )
             res = json.loads(r.text)
             #print("[Membership:createMembership()] RESPONSE: \n" + json.dumps(res,indent=4, separators=(',', ': ')))

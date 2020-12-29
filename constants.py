@@ -14,8 +14,8 @@ MAX_PER_COURSE_MEMBERSHIPS = 25
 INDEX = 5000
 
 #URLs
-COURSES_PATH = '/learn/api/public/v1/courses' #create(POST)/get(GET)
-COURSE_PATH = '/learn/api/public/v1/courses/externalId:'
+COURSES_PATH = '/learn/api/public/v3/courses' #create(POST)/get(GET)
+COURSE_PATH = '/learn/api/public/v3/courses/externalId:'
 USERS_PATH = '/learn/api/public/v1/users' #create(POST)/get(GET)
 USER_PATH = '/learn/api/public/v1/users/externalId:'
 MEMBERSHIPS_PATH = '/learn/api/public/v1/courses/courseId/users' #create(POST)/get(GET)
